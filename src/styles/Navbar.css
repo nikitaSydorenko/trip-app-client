@@ -1,0 +1,85 @@
+
+
+.navbarTrips{
+    background-color: #F9F9FA;;
+    display: flex;
+    flex-direction: column;
+    
+    max-width: 240px;
+    min-width: 240px;
+    
+    height: 100vh;
+    top: 0;
+    bottom: 0;
+    
+}
+.logo img{
+    margin-top: 40px;
+    margin-left: 40px;
+    margin-bottom: 40px;
+    width: 134px;
+}
+
+.btnCreateTrip{
+    margin-left: 40px;
+    width: 160px;
+    height: 48px;
+    border:none;
+    border-radius: 10px;
+    
+    background-color: #F8D964;
+    margin-bottom: 29px;
+}
+
+.btnCreateTrip:hover{
+    background-color: #FEC527;
+}
+
+.btnCreateTrip h5{
+    position: absolute;
+    margin-top: 13px;
+    margin-left: 20px;
+    margin-right: 43px;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+}
+
+.btnCreateTrip img{
+    margin-top: 16px;
+    margin-left: 124px;
+}
+
+.sectionsBlock {
+    width: 149px;
+    height: 106px;
+    margin-left: 40px;
+}
+
+.sectionsBlock a{
+    color: black;
+}
+
+.sectionsBlock p{
+    display: inline-block;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 22px;
+    width: 123px;
+    height: 22px;
+}
+
+.sectionsBlock:nth-last-child(1){
+    color: #97999B;
+}
+
+.sectionsBlock img{
+    margin-right: 10px;
+}
+
+
+

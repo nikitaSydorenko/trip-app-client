@@ -1,0 +1,58 @@
+.containerPlaceHolder{
+    position: absolute;
+    width: 320px;
+    height: 1024px;
+    left: 1500px;
+    top: 0px;
+
+    background: #F9F9FA;
+}
+
+.containerPlaceHolder img{
+    position: absolute;
+   
+    left: -3%;
+    
+}
+.title{
+    position: absolute;
+    width: 240px;
+    height: 34px;
+    left: 40px;
+    top: 43px;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 33px;
+    display: flex;
+    align-items: center;
+    color: #000000;
+}
+
+.content{
+    position: static;
+    width: 238px;
+    height: 368px;
+    left: 0px;
+    top: 0px;
+
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 16px;
+    display: flex;
+    align-items: flex-end;
+
+    color: #63666A;
+
+
+    /* Inside Auto Layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin-left: 20px;
+
+}
