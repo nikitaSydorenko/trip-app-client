@@ -1,12 +1,10 @@
 *{
     margin: 0;
+    box-sizing: border-box;
 }
-html,body{
-    height: 100%;
-    min-height: 100%;
-  }
 
-body{
-    background-color: #FFFFFF;
-    
+.app{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
 }

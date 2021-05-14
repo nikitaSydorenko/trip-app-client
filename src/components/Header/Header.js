@@ -1,14 +1,10 @@
 import React from 'react';
-import '../../styles/Header.css'
-import line from '../../assets/Line.png'
+import '../../styles/Header.css';
 
-const Header = ({ title }) => {
-    return (
-        <div className='header'>
-            <h2>{ title }</h2>
-            <img src={line}/>
-        </div>
-    )
-}
+const Header = ({ title }) => (
+  <div className="headerr">
+    <h2>{ title }</h2>
+  </div>
+);
 
 export default Header;

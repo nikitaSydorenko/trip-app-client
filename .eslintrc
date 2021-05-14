@@ -5,5 +5,10 @@
       "no-unused-vars": 0,
       "react/jsx-filename-extension": [0],
       "import/prefer-default-export": "off"
+    },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
     }
+  }
 }

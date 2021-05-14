@@ -1,51 +1,73 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import Snackbar from '@material-ui/core/Snackbar';
+import MuiAlert from '@material-ui/lab/Alert';
+import { makeStyles } from '@material-ui/core/styles';
 import Header from '../Header/Header';
+import { getCountry, postTrip } from '../../utils/api/requestToApi';
+import submitImg from '../../assets/submit.png';
 import '../../styles/TripsPage.css';
-import { getCountry, getTrips } from '../../utils/api/requestToApi';
 
 const NewTrip = () => {
-  const [countries, setCountries] = useState([]);
-  const { register, handleSubmit, errors } = useForm();
-  const [trip, setTrip] = useState({
-    start_date: '',
-    end_date: '',
-    company_name: '',
-    address: {
-      street: '',
-      street_num: '',
-      city: '',
-      country: '',
-      zip: '',
+  const useStyles = makeStyles((theme) => ({
+    root: {
+      width: '100%',
+      '& > * + *': {
+        marginTop: theme.spacing(2),
+      },
     },
-    covid: true,
-    covid_test_date: '12',
-  });
+    successCreated: {
+      width: '400px',
+    },
+  }));
 
-  useEffect(async () => {
-    // const sss = await getTrips();
-    // console.log(sss.data);
-    const res = await getCountry();
-    setCountries(res.data);
+  const classes = useStyles();
+  const [open, setOpen] = React.useState(false);
+  const [countries, setCountries] = useState([]);
+  const { register, errors, handleSubmit } = useForm();
+
+  const getDataFromApi = async () => {
+    try {
+      const res = await getCountry();
+      setCountries(res.data);
+    } catch (e) {
+      console.log('error!', e);
+    }
+  };
+
+  function Alert(props) {
+    return <MuiAlert elevation={6} variant="filled" {...props} />;
+  }
+
+  useEffect(() => {
+    getDataFromApi();
   }, []);
 
   const onSubmit = useCallback((data) => {
-    setTrip({
-      start_date: data.start_date,
-      end_date: data.end_date,
-      company_name: data.company_name,
-      address: {
-        street: data.street,
-        street_num: data.street_num,
-        city: data.city,
-        country: data.country,
-        zip: data.zip,
-      },
-      covid: true,
-      covid_test_date: '12',
-    });
-  }, [trip]);
-  console.log(trip);
+    try {
+      postTrip({
+        start_date: data.start_date,
+        end_date: data.end_date,
+        company_name: data.company_name,
+        address: {
+          street: data.street,
+          city: data.city,
+          country: data.country,
+          zip: data.zip,
+        },
+        covid: true,
+        covid_test_date: '2021-05-11',
+      });
+      setOpen(true);
+    } catch (e) {
+      console.log(e);
+    }
+  }, []);
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <div className="containerr">
       <Header title="New Trip" />
@@ -56,9 +78,9 @@ const NewTrip = () => {
               <h5>Where do you want to go</h5>
             </div>
             <div className="chooseCountry">
-              <select {...register('country')}>
-                {countries.map((country) => (
-                  <option value={country.value}>{country.label}</option>
+              <select {...register('country', { required: true })}>
+                {countries.map((country, index) => (
+                  <option key={index} value={country.label}>{country.label}</option>
                 ))}
               </select>
             </div>
@@ -66,52 +88,57 @@ const NewTrip = () => {
           <div className="startDate">
             <div className="start">
               <h5>Start date</h5>
-              <input type="date" {...register('start_date')} />
+              <input type="date" required {...register('start_date', { required: true })} />
             </div>
             <div className="end">
               <h5>End date</h5>
-              <input type="date" {...register('end_date')} />
+              <input type="date" required {...register('end_date', { required: true })} />
             </div>
           </div>
-
           <div className="adress">
             <div className="company">
               <h5>Company name</h5>
-              <input type="text" {...register('company_name', { required: true, maxLength: 20 })} placeholder="Type here..." />
+              <input type="text" required {...register('company_name', { required: true })} placeholder="Type here..." />
             </div>
             <div className="city">
               <h5>City</h5>
-              <input type="text" {...register('city', { required: true, maxLength: 20 })} placeholder="Type here..." />
+              <input type="text" {...register('city')} placeholder="Type here..." />
             </div>
             <div className="street">
               <h5>Street</h5>
-              <input type="text" {...register('street', { required: true, maxLength: 20 })} placeholder="Type here..." />
-
+              <input type="text" {...register('street')} placeholder="Type here..." />
             </div>
             <div className="streetNum">
               <h5>Street number</h5>
-              <input type="text" {...register('street_num', { required: true, maxLength: 20 })} placeholder="Type here..." />
-
+              <input type="number" {...register('street_num')} placeholder="Type here..." />
             </div>
             <div className="zip">
               <h5>Zip code</h5>
-              <input type="text" {...register('zip', { required: true, maxLength: 20 })} placeholder="Type here..." />
+              <input type="text" required {...register('zip', { required: true })} placeholder="Type here..." />
             </div>
           </div>
-
           <div className="covid">
-            <div className="covidContainer">
-              <h5>Have you been recently tested for COVID-19?</h5>
-              <div>
-                <input type="radio" />
-                <input type="radio" />
-              </div>
+            <h5>Have you been recently tested for COVID-19?</h5>
+            <div className="buttn">
+              <input type="radio" {...register('covid', { required: true })} />
+              <p>Yes</p>
+            </div>
+            <div className="buttn">
+              <input type="radio" {...register('covid', { required: true })} />
+              <p>No</p>
             </div>
           </div>
           <div className="saveTrip">
-
-            <input className="btn" type="submit" value="save" />
+            <button type="submit">
+              <p>Save</p>
+              <img src={submitImg} alt="subm" />
+            </button>
           </div>
+          <Snackbar open={open} className={classes.successCreated} autoHideDuration={60000} onClose={handleClose}>
+            <Alert onClose={handleClose} severity="success">
+              Trip was created successfully!
+            </Alert>
+          </Snackbar>
         </form>
       </div>
     </div>

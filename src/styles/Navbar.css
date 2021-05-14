@@ -1,42 +1,55 @@
-
-
 .navbarTrips{
     background-color: #F9F9FA;;
     display: flex;
     flex-direction: column;
-    
-    max-width: 240px;
-    min-width: 240px;
-    
-    height: 100vh;
-    top: 0;
-    bottom: 0;
-    
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    min-height: 570px;
 }
+
+.logo{
+    width: 375px;
+    height: 81px;
+}
+
 .logo img{
-    margin-top: 40px;
-    margin-left: 40px;
-    margin-bottom: 40px;
+    margin-top: 22px;
+    margin-left: 120px;
+    margin-bottom: 20px;
+    margin-right: 121px;
+    height: 38px;
     width: 134px;
 }
 
-.btnCreateTrip{
-    margin-left: 40px;
-    width: 160px;
+ .btnCreateTrip{
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 10px;
+    width: 335px;
     height: 48px;
     border:none;
     border-radius: 10px;
-    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background-color: #F8D964;
-    margin-bottom: 29px;
+
 }
 
 .btnCreateTrip:hover{
     background-color: #FEC527;
 }
 
+.btnCreateTrip img{
+    width: 16px;
+    height: 16px;
+    margin-right: 20px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
 .btnCreateTrip h5{
-    position: absolute;
     margin-top: 13px;
     margin-left: 20px;
     margin-right: 43px;
@@ -44,18 +57,17 @@
     font-style: normal;
     font-weight: 600;
     font-size: 14px;
-    line-height: 19px;
+    height: 19px;
+    width: 61px;
 }
 
-.btnCreateTrip img{
-    margin-top: 16px;
-    margin-left: 124px;
-}
+
 
 .sectionsBlock {
-    width: 149px;
-    height: 106px;
-    margin-left: 40px;
+    margin-top: 27px;
+    margin-left: 20px;
+    width: 185px;
+    height: 253px;
 }
 
 .sectionsBlock a{
@@ -71,6 +83,7 @@
     line-height: 22px;
     width: 123px;
     height: 22px;
+    margin-top: 30px;
 }
 
 .sectionsBlock:nth-last-child(1){
@@ -81,5 +94,57 @@
     margin-right: 10px;
 }
 
+@media screen and (min-width: 1024px){
+    .navbarTrips{
 
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 240px;
+        height: 1460px;
+        box-sizing: border-box;
+        min-height: 570px;
+    }
 
+    .logo img{
+        margin-top: 40px;
+        margin-left: 40px;
+        margin-bottom: 40px;
+        margin-right: 66px;
+        height: 38px;
+        width: 134px;
+
+    }
+
+    .btnCreateTrip{
+        margin-left: 40px;
+        margin-right: 40px;
+        margin-top: 40px;
+        width: 160px;
+        height: 48px;
+        border:none;
+        border-radius: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #F8D964;
+
+    }
+    .sectionsBlock {
+        margin-top: 29px;
+        margin-left: 40px;
+        width: 149px;
+        height: 106px;
+    }
+    .sectionsBlock p{
+        display: inline-block;
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 22px;
+        width: 123px;
+        height: 22px;
+        margin-top: 20px;
+    }
+}

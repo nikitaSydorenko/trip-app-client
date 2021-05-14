@@ -4,7 +4,6 @@ import '../styles/PlaceHolder.css';
 
 const PlaceHolderTrip = () => (
   <div className="containerPlaceHolder">
-    <img src={defaultLine} />
     <div className="title">
       Trips and Tricks
     </div>

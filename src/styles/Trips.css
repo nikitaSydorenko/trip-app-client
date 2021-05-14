@@ -1,0 +1,170 @@
+
+.sectionTrips{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    width: 355px;
+    margin-left: 10px;
+
+}
+
+.tripCard{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    width: 335px;
+    height: 296px;
+    background: #F9F9FA;
+    margin: 20px 0px;
+    border-radius: 10px;
+}
+
+.countryTrip {
+    width: 200px;
+    height: 24px;
+}
+
+.infoTrip{
+    width: 295px;
+    height: 78px;
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 0;
+    margin: 22px 0px;
+}
+
+.infoTrip p{
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 16px;
+    height: 17px;
+    display: flex;
+    align-items: flex-end;
+    color: #0A1E40;
+}
+
+.where h5{
+    width: 295px;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+
+    color: #0A1E40;
+}
+
+.where{
+    margin-top: 7px;
+    display: flex;
+}
+
+.viewTrip{
+    height: 48px;
+    width: 295px;
+    background: #F1F1F2;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.viewTrip h5{
+    margin-left: 20px;
+}
+
+.viewTrip img{
+    width: 15px;
+    height: 16px;
+    margin-right: 19px;
+}
+
+@media screen and (min-width: 1024px) {
+    .sectionTrips{
+        padding: 0px;
+        margin-left: 40px;
+        width: 800px;
+        margin-top: 134px;
+    }
+    .tripCard{
+        flex-direction: row;
+        justify-content: space-around;
+        width: 800px;
+        height: 88px;
+        background: #F9F9FA;
+    }
+
+    .firstBlock{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 0px;
+    }
+    .firstBlock h4{
+        width: 56px;
+        margin: 0px;
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 22px;
+    }
+    .firstBlock h5{
+        margin-left: 19px;
+        color: #97999B;
+        width: 355px;
+    }
+    .where{
+        display: flex;
+        flex-direction: row;
+
+        align-items: center;
+        padding: 0px;
+        height: 19px;
+        width: 355px;
+    }
+    .where h5{
+        width: 55px;
+    }
+    .where h4{
+        font-size: 14px;
+        color: #97999B;
+        margin-left: 10px;
+    }
+
+    .editBtns{
+        justify-content: space-around;
+        margin-top: 20px;
+        display: flex;
+        padding: 0px;
+        width: 116px;
+        height: 48px;
+        margin-left: 200px;
+    }
+
+    .deleteBtn{
+        background: #FBEBE9;
+        border-radius: 10px;
+        width: 48px;
+        height: 48px;
+        border: none;
+        outline: none;
+    }
+    .editBtn{
+        background: #F1F1F2;
+        border-radius: 10px;
+        width: 48px;
+        height: 48px;
+        border: none;
+        outline: none;
+    }
+}
